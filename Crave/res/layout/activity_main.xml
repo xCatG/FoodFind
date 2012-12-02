@@ -12,4 +12,20 @@
         android:layout_centerVertical="true"
         android:text="Some Dishes Here" />
 
+<EditText
+    android:id="@+id/input"
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:layout_below="@id/textView1"
+    android:lines="1"
+    android:imeOptions="actionSearch"
+    />
+<Button
+    android:id="@+id/send"
+    android:text="@string/send"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/input"
+    android:onClick="onSubmit"
+    />
 </RelativeLayout>
