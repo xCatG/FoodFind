@@ -42,11 +42,50 @@
     android:layout_below="@id/input"
     android:onClick="onSubmit"
     /> -->
-    
-  <ImageView 
-      android:id="@+id/hotChicken"
+  <FrameLayout
+      android:id="@+id/imgFrame"
+      android:layout_height="wrap_content"
       android:layout_width="fill_parent"
-      android:layout_height="fill_parent"
-      android:src="@drawable/chicken"
-      android:layout_margin="5dp" />"
+      android:layout_below="@id/searchView"
+      >
+    <ImageView 
+	android:id="@+id/hotChicken"
+	android:layout_width="320dp"
+	android:layout_height="180dp"
+	android:src="@drawable/chicken"
+	android:layout_margin="0dp"
+	android:scaleType="centerCrop"/>
+    <RelativeLayout
+	android:layout_width="320dp"
+	android:layout_height="180dp"
+	android:gravity="right"
+	>
+    <TextView
+	android:id="@+id/textLine1"
+	android:layout_height="wrap_content"
+	android:layout_width="200dp"
+	android:layout_centerVertical="true"
+	android:layout_alignParentRight="true"
+	android:gravity="right"
+	android:layout_gravity="center_vertical|right"
+	android:textSize="16sp"
+	android:text="lalala"
+	android:textColor="#FFFFFF"
+	android:padding="5dp"
+	android:background="#A0000000"	/>
+    <TextView
+	android:id="@+id/textLine2"
+	android:layout_width="160dp"
+	android:layout_height="wrap_content"
+	android:layout_alignParentRight="true"
+	android:gravity="right"
+	android:layout_gravity="center_vertical|right"
+	android:text="line2"
+	android:textSize="10sp"
+	android:textColor="#FFFFFF"
+	android:background="#A0000000"
+	android:layout_below="@id/textLine1"
+	/>
+    </RelativeLayout>
+  </FrameLayout>
 </RelativeLayout>

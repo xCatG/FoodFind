@@ -15,11 +15,16 @@ import android.content.Context;
 import android.util.Log;
 import org.json.JSONArray;
 import com.google.gson.*;
-
-
+/*import com.singly.android.client.AsyncApiResponseHandler;
+import com.singly.android.client.SinglyClient;
+import com.singly.android.client.SinglyClient.Authentication;
+import com.singly.android.component.AuthenticatedServicesActivity;
+import com.singly.android.component.FriendsListActivity;
+*/
 public class MainActivity extends Activity {
     private SearchView mInput = null;
-
+    private TextView line1;
+    private TextView line2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +32,13 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 	
 	mInput = (SearchView) findViewById(R.id.searchView);
+	line1 = (TextView) findViewById(R.id.textLine1);
+	line2 = (TextView) findViewById(R.id.textLine2);
+    }
+
+    private void initSingly()
+    {
+	
     }
 
     @Override
