@@ -12,20 +12,34 @@
         android:layout_centerVertical="true"
         android:text="Some Dishes Here" />
 
-<EditText
+<!-- <EditText
     android:id="@+id/input"
     android:layout_height="wrap_content"
     android:layout_width="fill_parent"
     android:layout_below="@id/textView1"
     android:lines="1"
     android:imeOptions="actionSearch"
-    />
-<Button
+    /> -->
+
+ <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:iconifiedByDefault="false"
+        android:inputType = "text"
+        android:maxWidth = "250sp"
+        android:queryHint="I&apos;m craving" >
+</SearchView>
+    
+<!-- <Button
     android:id="@+id/send"
     android:text="@string/send"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_below="@id/input"
     android:onClick="onSubmit"
-    />
+    /> -->
 </RelativeLayout>

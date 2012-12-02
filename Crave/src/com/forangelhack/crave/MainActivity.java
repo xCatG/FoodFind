@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.SearchView;
 import android.widget.Toast;
 import android.widget.EditText;
 import android.view.View;
@@ -17,7 +18,7 @@ import com.google.gson.*;
 
 
 public class MainActivity extends Activity {
-    private EditText mInput = null;
+    private SearchView mInput = null;
 
 
     @Override
@@ -25,7 +26,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 	
-	mInput = (EditText) findViewById(R.id.input);
+	mInput = (SearchView) findViewById(R.id.searchView);
     }
 
     @Override
@@ -58,7 +59,9 @@ public class MainActivity extends Activity {
     }
 
     public void onSubmit(View v){
-	String searchTerm = ((TextView)mInput).getText().toString();
+	/*String searchTerm = ((TextView)mInput).getText().toString();*/
+	
+	String searchTerm = ((SearchView)mInput).getContext().toString();
 
 	SearchTask s = new SearchTask(searchTerm, null, null, null);
 	s.execute(this);
