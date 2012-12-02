@@ -25,10 +25,11 @@ public class FoodFindServlet extends HttpServlet {
 			return;
 		}
 		
-		ResultObj r = new ResultObj("dummy", "http://www.google.com/", "dummy Restaurant", "1.0mi", "120.1123132","90.100012", 3.99f);
-		
+		//		ResultObj r = new ResultObj("dummy", "http://www.google.com/", "dummy Restaurant", "1.0mi", "120.1123132","90.100012", 3.99f);
+		ResultObj z[] = getRecommendation(rq);//= new ResultObj[3]; 
+		//z[0] = r;z[1] = r;z[2] = r;
 		resp.setContentType("text/plain");
-		resp.getWriter().println(g.toJson(r));
+		resp.getWriter().println(g.toJson(z));
 		
 	}
 
@@ -71,6 +72,31 @@ public class FoodFindServlet extends HttpServlet {
 		
 		return ret;
 		
+	}
+	
+	private ResultObj[] getRecommendation(ReqObj p)
+	{
+		if(p.qstring.contains("spicy")||p.qstring.contains("chinese"))
+		{
+			String fsqIdz[] = {"4af63a1df964a5206e0222e3", "4a73ac34f964a5201fdd1fe3", "4af37f39f964a52027ee21e3"};
+			String dishImgUrlz[] = {"https://s3-us-west-2.amazonaws.com/foodfinderangelhack/CQHC.jpg",
+					"https://s3-us-west-2.amazonaws.com/foodfinderangelhack/SBT.jpg",
+					"https://s3-us-west-2.amazonaws.com/foodfinderangelhack/SFF.jpg"};
+			String dishNamez[] = {"Chong Qing Hot Chicken", "Spicy Basil Tofu", "Spicy fish fillet"};
+			String rnamez[] = {"Szechuan Chef", "Bamboo Garden", "Spiced"};
+			ResultObj ret[] = new ResultObj[3];
+			float fPrize[] = {8.75f, 9.99f, 7.25f};
+			for(int i = 0; i < 3; i++ )
+			{
+				ret[i] = new ResultObj(dishNamez[i], dishImgUrlz[i],rnamez[i],"","","",fPrize[i]);
+			}
+			return ret;
+		}
+		
+		
+		
+		
+		return null;
 	}
 	
 	
