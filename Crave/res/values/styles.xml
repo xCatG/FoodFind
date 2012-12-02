@@ -17,4 +17,9 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+ <style name="myRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/ic_hotpepper</item>
+        <item name="android:indeterminateDrawable">@drawable/ic_hotpepper</item>
+ </style>
+
 </resources>

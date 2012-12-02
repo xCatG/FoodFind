@@ -15,6 +15,8 @@ import android.content.Context;
 import android.util.Log;
 import org.json.JSONArray;
 import com.google.gson.*;
+import android.widget.RatingBar;
+
 /*import com.singly.android.client.AsyncApiResponseHandler;
 import com.singly.android.client.SinglyClient;
 import com.singly.android.client.SinglyClient.Authentication;
@@ -25,6 +27,9 @@ public class MainActivity extends Activity {
     private SearchView mInput = null;
     private TextView line1;
     private TextView line2;
+    private RatingBar spicyBar;
+    private View resultView;
+    private TextView moreText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +39,10 @@ public class MainActivity extends Activity {
 	mInput = (SearchView) findViewById(R.id.searchView);
 	line1 = (TextView) findViewById(R.id.textLine1);
 	line2 = (TextView) findViewById(R.id.textLine2);
+	spicyBar = (RatingBar) findViewById(R.id.spicyBar);
+	View resultView = findViewById(R.id.resultView);
+	moreText = (TextView) findViewById(R.id.someText);
+
     }
 
     private void initSingly()
