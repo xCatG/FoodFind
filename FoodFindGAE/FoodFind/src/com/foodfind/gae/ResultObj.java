@@ -8,6 +8,7 @@ public class ResultObj {
 	public String lat;
 	public String lon;
 	public float price;
+	public String err;
 	
 	public ResultObj(){}
 	public ResultObj(String itemName, String picUrl, String resName, 
@@ -19,6 +20,10 @@ public class ResultObj {
 		this.lat = lat;
 		this.lon = lon;
 		this.price = price;
+	}
+	
+	public ResultObj(String error){
+		
 	}
 	
 }
