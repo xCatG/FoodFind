@@ -16,32 +16,42 @@ import android.util.Log;
 import org.json.JSONArray;
 import com.google.gson.*;
 import android.widget.RatingBar;
+import android.text.Html;
+import android.widget.ImageView;
 
-/*import com.singly.android.client.AsyncApiResponseHandler;
+/*
+import com.singly.android.client.AsyncApiResponseHandler;
 import com.singly.android.client.SinglyClient;
 import com.singly.android.client.SinglyClient.Authentication;
 import com.singly.android.component.AuthenticatedServicesActivity;
 import com.singly.android.component.FriendsListActivity;
 */
 public class MainActivity extends Activity {
-    private SearchView mInput = null;
+    private static final String TAG ="MainActivity";
+    private EditText mInput = null;
     private TextView line1;
     private TextView line2;
     private RatingBar spicyBar;
     private View resultView;
     private TextView moreText;
+    private ImageView pic;
+    private int[] picz = {R.drawable.chicken, 
+			  R.drawable.spicytofu, 
+			  R.drawable.spicyfriedfish};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 	
-	mInput = (SearchView) findViewById(R.id.searchView);
+	mInput = (EditText)findViewById(R.id.input);
 	line1 = (TextView) findViewById(R.id.textLine1);
 	line2 = (TextView) findViewById(R.id.textLine2);
 	spicyBar = (RatingBar) findViewById(R.id.spicyBar);
-	View resultView = findViewById(R.id.resultView);
+	resultView = findViewById(R.id.resultView);
 	moreText = (TextView) findViewById(R.id.someText);
+	pic = (ImageView) findViewById(R.id.hotChicken);
+	spicyBar.setMax(5);
 
     }
 
@@ -80,24 +90,48 @@ public class MainActivity extends Activity {
     }
 
     public void onSubmit(View v){
-	/*String searchTerm = ((TextView)mInput).getText().toString();*/
+	String searchTerm = ((TextView)mInput).getText().toString();
 	
-	String searchTerm = ((SearchView)mInput).getContext().toString();
+	//String searchTerm = ((SearchView)mInput).getContext().toString();
 
 	SearchTask s = new SearchTask(searchTerm, null, null, null);
 	s.execute(this);
+	searchedTerm = searchTerm;
     }
+
+    private String searchedTerm = null;
+    private int shownIndex = 0;
 
     private void updateDisplay(){
 	if(resultz == null)
 	    return;
 	
-	String rd = "";
-	for(ResultObj r: resultz){
-	    rd+=r.dishName;
+
+	//((TextView)findViewById(R.id.textView1)).setText(rd);
+	findViewById(R.id.textView1).setVisibility(View.GONE);
+	resultView.setVisibility(View.VISIBLE);
+	if(searchedTerm!= null && searchedTerm.contains("spicy"))
+	{
+	    moreText.setText(Html.fromHtml(getString(R.string.moreText)));
+	}
+	else{
+	    spicyBar.setNumStars(0);
 	}
 
-	((TextView)findViewById(R.id.textView1)).setText(rd);
+	pic.setImageResource(picz[shownIndex]);
+	line1.setText( resultz[shownIndex].dishName.toUpperCase());
+	line2.setText( resultz[shownIndex].restaurantName.toUpperCase());
+	
+    }
+
+    public void onNext(View v){
+	shownIndex++;
+	if(shownIndex >= resultz.length)
+	    return;
+
+	line1.setText( resultz[shownIndex].dishName.toUpperCase());
+	line2.setText( resultz[shownIndex].restaurantName.toUpperCase());
+	pic.setImageResource(picz[shownIndex]);
     }
 
     private ResultObj[] resultz = null;

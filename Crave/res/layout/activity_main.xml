@@ -11,17 +11,37 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="Some Dishes Here" />
-
-<!-- <EditText
-    android:id="@+id/input"
+<LinearLayout
+    android:orientation="horizontal"
+    android:id="@+id/searchView"
     android:layout_height="wrap_content"
     android:layout_width="fill_parent"
-    android:layout_below="@id/textView1"
+    >
+  <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/ic_action_example"
+      />
+     
+<EditText
+    android:id="@+id/input"
+    android:layout_height="wrap_content"
+    android:layout_width="0dp"
+    android:layout_weight="1"
     android:lines="1"
     android:imeOptions="actionSearch"
-    /> -->
+    />
+<Button
+    android:id="@+id/send"
+    android:text="@string/send"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:onClick="onSubmit"
+    android:layout_alignParentRight="true"
+    />
 
- <SearchView
+</LinearLayout>>
+<!-- <SearchView
         android:id="@+id/searchView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,22 +52,15 @@
         android:inputType = "text"
         android:maxWidth = "250sp"
         android:queryHint="I&apos;m craving" >
-</SearchView>
+</SearchView>-->
     
-<!-- <Button
-    android:id="@+id/send"
-    android:text="@string/send"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@id/input"
-    android:onClick="onSubmit"
-    /> -->
 <LinearLayout
     android:id="@+id/resultView"
+    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_below="@id/searchView"
-android:visibility="gone"
+    android:visibility="gone"
     >
   <FrameLayout
       android:id="@+id/imgFrame"
@@ -70,7 +83,7 @@ android:visibility="gone"
     <TextView
 	android:id="@+id/textLine1"
 	android:layout_height="wrap_content"
-	android:layout_width="200dp"
+	android:layout_width="240dp"
 	android:layout_centerVertical="true"
 	android:layout_alignParentRight="true"
 	android:gravity="right"
@@ -107,7 +120,15 @@ android:visibility="gone"
   <TextView
       android:id="@+id/someText"
       android:layout_width="fill_parent"
-      android:layout_height="fill_parent"
+      android:layout_height="wrap_content"
       />
+<Button
+    android:id="@+id/next"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:text="Next"
+    android:onClick="onNext"
+    />
 </LinearLayout>
 </RelativeLayout>
