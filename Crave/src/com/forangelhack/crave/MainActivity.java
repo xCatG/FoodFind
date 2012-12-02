@@ -51,9 +51,9 @@ public class MainActivity extends Activity {
                 Toast.makeText(this, "Check ih", Toast.LENGTH_SHORT).show();
                 break;
 
-            case R.id.menu_share:
+/*            case R.id.menu_share:
                 Toast.makeText(this, "Tapped share", Toast.LENGTH_SHORT).show();
-                break;
+                break;*/
         }
         return super.onOptionsItemSelected(item);
     }
