@@ -25,9 +25,7 @@ public class FoodFindServlet extends HttpServlet {
 		ReqObj rq = parseRequest(req);
 		if(rq == null)
 		{
-			testSingly();
-			
-			
+			//testSingly();
 			resp.setContentType("text/plain");
 			ResultObj er = new ResultObj("invalid parameter");
 			resp.getWriter().println(g.toJson(er));
