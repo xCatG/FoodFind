@@ -42,4 +42,11 @@
     android:layout_below="@id/input"
     android:onClick="onSubmit"
     /> -->
+    
+  <ImageView 
+      android:id="@+id/hotChicken"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:src="@drawable/chicken"
+      android:layout_margin="5dp" />"
 </RelativeLayout>
