@@ -7,6 +7,12 @@ import javax.servlet.http.*;
 
 import com.singly.client.SinglyService;
 import com.google.gson.*;
+import com.singly.client.SinglyService;
+import com.singly.util.HttpClientService;
+import com.singly.client.SinglyAccountStorage;
+import com.singly.client.InMemorySinglyAccountStorage;
+import com.singly.util.HttpClientServiceImpl;
+import com.singly.client.SinglyServiceImpl;
 
 @SuppressWarnings("serial")
 public class FoodFindServlet extends HttpServlet {
@@ -19,6 +25,9 @@ public class FoodFindServlet extends HttpServlet {
 		ReqObj rq = parseRequest(req);
 		if(rq == null)
 		{
+			testSingly();
+			
+			
 			resp.setContentType("text/plain");
 			ResultObj er = new ResultObj("invalid parameter");
 			resp.getWriter().println(g.toJson(er));
@@ -99,6 +108,19 @@ public class FoodFindServlet extends HttpServlet {
 		return null;
 	}
 	
-	
+	private static final String S_CID = "8628123d6298df5d10bfce1c38c3eb46";
+	private static final String S_CS = "24fd77407b8ad00da6ee2ae5dadc872b";
+	private void testSingly()
+	{
+		
+		HttpClientServiceImpl httpClient = new HttpClientServiceImpl();
+		httpClient.initialize();
+		SinglyAccountStorage accountStorage = new InMemorySinglyAccountStorage();
+		//SinglyService client = new SinglyServiceImpl(S_CID, S_CS, 
+		//  accountStorage, httpClient);
+
+		//String servicesJson = client.doGetApiRequest("/services", null);
+
+	}
 	
 }
